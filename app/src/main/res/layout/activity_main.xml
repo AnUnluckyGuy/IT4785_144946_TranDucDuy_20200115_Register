@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/name_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/gender_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp">
+
+        <LinearLayout
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/first_name"
+                android:textSize="18sp"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/fn_text"
+                android:background="@drawable/custom_textbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/first_name"
+                android:inputType="textCapWords"
+                android:minHeight="48dp"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="-9dp"
+                tools:layout_editor_absoluteY="86dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/last_name"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                />
+
+            <EditText
+                android:id="@+id/ln_text"
+                android:background="@drawable/custom_textbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/last_name"
+                android:inputType="textCapWords"
+                android:minHeight="48dp"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="-9dp"
+                tools:layout_editor_absoluteY="86dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gender_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/name_section"
+        app:layout_constraintBottom_toTopOf="@id/birthday_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp" />
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp">
+            
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:textSize="18sp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:textSize="18sp"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/birthday_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/gender_section"
+        app:layout_constraintBottom_toTopOf="@id/address_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <EditText
+                android:id="@+id/dob_text"
+                android:background="@drawable/custom_textbox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/birthday"
+                android:textSize="18sp"
+                android:inputType="date"
+                android:minHeight="48dp"
+                android:layout_weight="10"
+                android:layout_marginEnd="5dp"
+                android:focusable="false" />
+            <Button
+                android:id="@+id/date_picker_btn"
+                android:background="@drawable/custom_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/address_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/birthday_section"
+        app:layout_constraintBottom_toTopOf="@id/email_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:textSize="18sp"/>
+        <EditText
+            android:id="@+id/address_text"
+            android:background="@drawable/custom_textbox"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:hint="@string/address"
+            android:textSize="18sp"
+            android:gravity="start"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/email_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/address_section"
+        app:layout_constraintBottom_toTopOf="@id/checkbox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/email_text"
+            android:background="@drawable/custom_textbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:minHeight="48dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/i_agree_to_terms_of_use"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/email_section"
+        app:layout_constraintBottom_toBottomOf="@id/register_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:background="@drawable/custom_btn"
+        android:id="@+id/register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/checkbox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/register"
+        android:textSize="18sp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
