@@ -1,6 +1,8 @@
 package com.example.myapplication
 
 import android.app.DatePickerDialog
+import android.content.res.ColorStateList
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,10 +17,23 @@ import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
     private var clickTime = 0;
+    val states = arrayOf(
+        intArrayOf(android.R.attr.state_pressed),
+        intArrayOf(android.R.attr.state_enabled)
+    )
+    val btnColors = intArrayOf(
+        Color.YELLOW,
+        Color.GRAY
+    )
+    val btnStateList = ColorStateList(states, btnColors);
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val regBtn: Button = findViewById(R.id.register_button);
+        val dpbtn: Button = findViewById(R.id.date_picker_btn);
+        regBtn.backgroundTintList = btnStateList;
+        dpbtn.backgroundTintList = btnStateList;
         setDatePickerBtn();
         regBtn.setOnClickListener {
             val fnViewText: EditText = findViewById(R.id.fn_text);
